@@ -1,0 +1,20 @@
+  <!--Picture and description AUDI Q8-->
+  <div class="content">
+    <div class ="row">
+      <div class="card mb-3 col-lg-6 offset-md-3">
+        <img [src]="information.imgSrc" class="card-img-top" alt="{{information.name}}">
+        <div class="card-body">
+          <h5 class="card-title" [textContent]="information.name"></h5>
+          <ul>
+            <li>Name: {{information.name}}</li>
+            <li>Mileage: {{information.mileage}} km</li>
+            <li>Amount of petrol: {{information.amountOfPetrol}} l</li>
+            <li>Max fuel tank capacity: {{information.volumePetrol}} l</li>
+            <li *ngFor="let element of information.specification">{{element}}</li>
+          </ul>
+          <button type="button" class="btn btn-secondary" (click)="drive()">Let's go!!!</button>
+          <button type="button" class="btn btn-warning" [ngStyle]="{ 'margin-left': '15px' }" *ngIf="information.amountOfPetrol <= 2" (click)="refuel()" >Need Refuel!</button>   
+        </div>
+      </div>
+    </div>
+  </div>
